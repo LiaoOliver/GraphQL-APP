@@ -1,0 +1,14 @@
+@import './base/reset.scss';
+
+// layout
+@import './layout/head.scss';
+@import './layout/sidebar.scss';
+@import './layout/content.scss';
+
+// pages
+@import './pages/newTask.scss';
+
+// components 
+@import './components/button.scss';
+@import './components/form.scss';
+

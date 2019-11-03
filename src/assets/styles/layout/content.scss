@@ -1,0 +1,26 @@
+.content{
+    width: calc( 100% - 250px);
+    height: 100vh;
+    margin-left: 250px;
+    &__container{
+        width: 90%;
+        max-width: 1440px;
+        height: 100%;
+        overflow: auto;
+        margin: auto;
+        padding: 32px 0px;
+    }
+}
+
+@media (max-width:1023px){
+    .content{
+        width: 100%;
+        height: calc(100vh - 63px);
+        margin-left: 0px;
+        &__container{
+            width: 95%;
+            margin: auto;
+            padding-top: 24px;
+        }
+    }
+}

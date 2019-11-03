@@ -1,0 +1,44 @@
+<form class="form" [formGroup]="commonForm" (ngSubmit)="onSubmit()">
+  <h2>新增任務</h2>
+  <div class="form__title form__title--style">
+    基本資料
+  </div>
+  <div class="form__group">
+    <div class="form__item">
+      <label for="name">任務名稱</label>
+      <input type="text" name="name" id="name"  formControlName="taskName">
+    </div>
+    <div class="form__item">
+      <label for="name">優先性</label>
+      <select formControlName="priority">
+        <option value="">請選擇</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="form__item">
+      <label for="publisher">發布者</label>
+      <input type="text" name="publisher" id="publisher" formControlName="publisher">
+    </div>
+    <div class="form__item">
+      <label for="name">執行者</label>
+      <select formControlName="executor">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="form__item">
+      <label for="deadline">完成日期</label>
+      <input type="date" name="deadline" id="deadline" formControlName="deadline">
+    </div>
+  </div>
+  <div class="form__title form__title--style">
+    任務細節描述
+  </div>
+  <textarea maxlength="200" placeholder="write task items ..." formControlName="desc"></textarea>
+  <div class="form__footer">
+    <button class="btn" type="submit">送出</button>
+  </div>
+</form>
