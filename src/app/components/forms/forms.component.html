@@ -24,9 +24,8 @@
     <div class="form__item">
       <label for="name">執行者</label>
       <select formControlName="executor">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
+        <option value="">請選擇</option>
+        <option *ngFor="let employee of employees" [value]="employee._id">{{ employee.name }}</option>
       </select>
     </div>
     <div class="form__item">

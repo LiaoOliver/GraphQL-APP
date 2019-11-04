@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { GetEmployeeService } from '../../service/getEmployee.service';
 
 @Component({
   selector: 'app-add-task',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
+  private employees: string[];
+
+  constructor(
+    private _getEmployee: GetEmployeeService
+  ) { }
 
   ngOnInit() {
+    this._getEmployee.getAllEmployees().subscribe(res => {
+      if (res) this.employees = [...res.allemployeers]
+    })
   }
 
 }
