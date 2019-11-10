@@ -1,5 +1,13 @@
 <div class="sidebar">
-  <div class="sidebar__profile"></div>
+  <div class="sidebar__profile">
+    <div class="sidebar__avatar">
+      <img width="100%" src="assets/icon/user.png" alt="">
+    </div>
+    <div class="sidebar__userInfo">
+      <span>{{ name }}</span>
+      <span>{{ dept }}</span>
+    </div>
+  </div>
   <ul class="sidebar__content">
     <li class="sidebar__item  sidebar__item--active">
       <p class="sidebar__item--link" [routerLink]="['/']">HOME</p>
@@ -9,6 +17,12 @@
     </li>
     <li class="sidebar__item  sidebar__item--active">
       <p class="sidebar__item--link" [routerLink]="['/listtask']">List Task</p>
+    </li>
+    <li class="sidebar__item  sidebar__item--active">
+      <p class="sidebar__item--link" [routerLink]="['/listtask']">Employees</p>
+    </li>
+    <li class="sidebar__item  sidebar__item--active">
+      <p class="sidebar__item--link" [routerLink]="['/listtask']">Dept</p>
     </li>
   </ul>
   <div class="sidebar__setting">

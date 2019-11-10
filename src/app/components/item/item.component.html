@@ -1,0 +1,40 @@
+<div class="item">
+    <div [routerLink]="['/detail', item._id]"
+    class="item__basic" 
+    [ngClass]="{'item__basic--low': priority.low, 'item__basic--medium': priority.medium, 'item__basic--high': priority.high}">
+        <h2>{{ item.name }}</h2>
+    </div>
+    <div class="item__info">
+        <div class="item__date">
+            <span>
+                <img width="24" src="../../../assets/icon/launch.png" alt="start">
+                <h3>{{ item.publishDate | date:'yy/MM/dd'}}</h3>
+            </span>
+            <span>
+                <img width="24" src="../../../assets/icon/flag.png" alt="end">
+                <h3>{{ item.deadline | date:'yy/MM/dd'}}</h3>
+            </span>
+            <ul class="item__priority">
+                <li [ngClass]="{'item__priority--low': priority.low, 'item__priority--medium': priority.medium, 'item__priority--high': priority.high}"></li>
+                <li [ngClass]="{'item__priority--medium': priority.medium, 'item__priority--high': priority.high}"></li>
+                <li [ngClass]="{'item__priority--high': priority.high}"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="item__progress">
+        <div class="item__step">
+            <h4 class="item__step--title">Assign</h4>
+            <p class="item__step--content">
+                <img *ngIf="item.isAssign" width="42" src="assets/icon/checked.png">
+                <img *ngIf="!item.isAssign" width="42" src="assets/icon/delete.png">
+            </p>
+        </div>
+        <div class="item__step">
+            <h4 class="item__step--title">Finished</h4>
+            <p class="item__step--content">
+                <img *ngIf="item.isFinished" width="42" src="assets/icon/checked.png">
+                <img *ngIf="!item.isFinished" width="42" src="assets/icon/delete.png">
+            </p>
+        </div>
+    </div>
+</div>

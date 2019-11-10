@@ -1,4 +1,5 @@
-<div class="main">
+<app-login *ngIf="!isLogin" (isPermission)="isPermission($event)"></app-login>
+<div class="main" *ngIf="isLogin">
     <app-head></app-head>
     <app-sideBar></app-sideBar>
     <div class="content">

@@ -4,11 +4,16 @@
 @import './layout/head.scss';
 @import './layout/sidebar.scss';
 @import './layout/content.scss';
+@import './layout/inputs.scss';
 
 // pages
+@import './pages/login.scss';
 @import './pages/newTask.scss';
+@import './pages/listTask.scss';
 
 // components 
 @import './components/button.scss';
 @import './components/form.scss';
+@import './components/item.scss';
+@import './components/titleline.scss';
 

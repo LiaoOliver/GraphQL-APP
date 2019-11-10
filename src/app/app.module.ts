@@ -17,6 +17,10 @@ import { NofundComponent } from './page/nofund/nofund.component';
 import { HeadComponent } from './components/head/head.component';
 import { SideBarComponent } from './components/sideBar/sideBar.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { ItemComponent } from './components/item/item.component';
+import { EditTaskComponent } from './page/edit-task/edit-task.component';
+import { DetailComponent } from './page/detail/detail.component';
+import { TitlelineComponent } from './components/titleline/titleline.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { FormsComponent } from './components/forms/forms.component';
     NofundComponent,
     HeadComponent,
     SideBarComponent,
-    FormsComponent
+    FormsComponent,
+    ItemComponent,
+    EditTaskComponent,
+    DetailComponent,
+    TitlelineComponent
   ],
   imports: [
     BrowserModule,

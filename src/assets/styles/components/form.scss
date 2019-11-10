@@ -1,12 +1,4 @@
 .form{
-    &__title{
-        padding: 8px 10px;
-        &--style{
-            border-radius: 6px;
-            background: rgb(102, 173, 231);
-            color: #fff;
-        }
-    }
     &__group{
         display: flex;
         flex-wrap: wrap;

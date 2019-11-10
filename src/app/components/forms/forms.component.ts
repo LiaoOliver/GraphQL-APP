@@ -1,5 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { LoginService } from '../../service/login.service';
+import { addTask } from '../../model/task.model';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
@@ -33,7 +36,7 @@ export class FormsComponent implements OnInit, OnChanges {
     taskName: new FormControl(''),
     priority: new FormControl(''),
     publisher: new FormControl({
-      value:"cathy",
+      value: this._login.currentMe()['name'],
       disabled: true
     }),
     executor: new FormControl(''),
@@ -42,11 +45,13 @@ export class FormsComponent implements OnInit, OnChanges {
   })
 
   constructor(
-    private _apollo: Apollo
+    private _apollo: Apollo, 
+    private _login: LoginService,
+    public _router:Router  
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   ngOnChanges(){
@@ -54,21 +59,21 @@ export class FormsComponent implements OnInit, OnChanges {
   }
 
   onSubmit(){
-    let value = this.commonForm.value
+    let value = this.commonForm.value;
+    let input: addTask = {
+      taskName: value.taskName,
+      desc: value.desc,
+      deadline: value.deadline,
+      priority: value.priority,
+      publisher: this._login.currentMe()['_id'],
+      executor: value.executor
+    }
+
     this._apollo.mutate({
       mutation: submitComment,
-      variables: {
-        input: {
-          taskName: value.taskName,
-          desc: value.desc,
-          deadline: value.deadline,
-          priority: value.priority,
-          publisher: "5db6f75cada3440f6227b52b",
-          executor: value.executor
-        }
-      },
-    }).subscribe(res => console.log(res));
-    console.log(this.commonForm.value)
+      variables: { input },
+    }).subscribe(res => this._router.navigate(['/listtask']), error => error);
+
   }
 
 }

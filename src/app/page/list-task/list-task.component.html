@@ -1,1 +1,8 @@
-<p>list-task works!</p>
+<div class="list">
+    <div *ngIf="alltask">
+        <div class="list__item" *ngFor="let item of alltask">
+            <app-item [item]="item"></app-item>
+        </div>
+    </div>
+    <div *ngIf="!alltask">Loading...</div>
+</div>

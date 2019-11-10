@@ -5,11 +5,20 @@ import { map } from 'rxjs/operators';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
-const users = gql`
-  query CurrentUserForProfile {
-    allemployeers {
+const tasks = gql`
+  query showAll{
+    allTasks{
       _id
       name
+      desc
+      priority
+      deadline
+      publisher
+      publishDate
+      executor
+      finishedDate
+      isAssign
+      isFinished
     }
   }
 `;
@@ -17,19 +26,17 @@ const users = gql`
 @Injectable({
   providedIn: 'root'
 })
-export class GetEmployeeService implements OnInit{
+export class GetAllTaskService implements OnInit{
 
   public data: Observable<any>;
   constructor(private _apollo: Apollo) { }
-  ngOnInit(){
-    this.getAllEmployees()
+
+  ngOnInit() {
+    this.getData()
   }
 
-  getAllEmployees(){
-    this.data = this._apollo.watchQuery<any>({
-      query: users
-    }).valueChanges.pipe(map(({ data }) => data))
-    return this.data
+  getData(){
+    return this.data = this._apollo.watchQuery({ query: tasks}).valueChanges.pipe(map(({data}) => data))
   }
 
 }

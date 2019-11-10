@@ -1,0 +1,12 @@
+input[type="text"], input[type="password"]{
+    border: none;
+    background: #efefef;
+    padding: 12px;
+    border-radius: 4px;
+    &:focus{
+        outline: none;
+    }
+    &:disabled{
+        background: #ccc;
+    }
+}
